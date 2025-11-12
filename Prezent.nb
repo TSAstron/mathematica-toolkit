@@ -1,0 +1,554 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     17720,        544]
+NotebookOptionsPosition[     11907,        397]
+NotebookOutlinePosition[     16333,        497]
+CellTagsIndexPosition[     16290,        494]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Aktualne aliasy pewnie puste, ale sprawdzamy, zeby dodac, a nie nadpisac :\
+\>", "Text",
+ CellChangeTimes->{{3.806570412075241*^9, 3.8065704360348167`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"currentAliases", "=", 
+  RowBox[{"CurrentValue", "[", 
+   RowBox[{
+    RowBox[{"EvaluationNotebook", "[", "]"}], ",", "InputAliases"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{3.806570439446949*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{{3.80657044064888*^9, 3.8065704492760763`*^9}, 
+   3.806570495330518*^9}]
+}, Open  ]],
+
+Cell["Ponizej, na wszelki wypadek, do ich kasowania :", "Text",
+ CellChangeTimes->{{3.806570475007928*^9, 3.806570483583537*^9}, {
+  3.806570960686901*^9, 3.8065709679174843`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{
+   RowBox[{"EvaluationNotebook", "[", "]"}], ",", 
+   RowBox[{"InputAliases", "\[Rule]", 
+    RowBox[{"{", "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.806554714413982*^9, 3.806554784068487*^9}, {
+   3.8065548360579576`*^9, 3.806554837730288*^9}, {3.806554923581579*^9, 
+   3.80655500682548*^9}, {3.806555042030643*^9, 3.806555047729553*^9}, {
+   3.8065551955586653`*^9, 3.8065552055966787`*^9}, {3.806555254875388*^9, 
+   3.806555263557042*^9}, {3.806555302731071*^9, 3.80655531539251*^9}, 
+   3.806555962941*^9, {3.8065704676513233`*^9, 3.80657048943104*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"regu\[LSlash]a", " ", "aliasowa", " ", "jest", " ", "taka"}], ",", 
+  " ", 
+  RowBox[{"do", " ", "\"\<weX\>\"", " ", 
+   RowBox[{"(", 
+    RowBox[{"musi", " ", "by\[CAcute]", " ", "string"}], ")"}], " ", 
+   "przypisujemy", " ", 
+   OverscriptBox["v", "\[RightVector]"], 
+   RowBox[{"(", 
+    RowBox[{
+    "musi", " ", "by\[CAcute]", " ", "jako", " ", "Box", " ", "lub", " ", 
+     "string"}], ")"}]}]}]], "Text",
+ CellChangeTimes->{{3.806556391787726*^9, 3.806556413543704*^9}, {
+  3.8065564503025827`*^9, 3.806556470248241*^9}, {3.806570521437976*^9, 
+  3.8065705229570017`*^9}}],
+
+Cell["wersja ze strza\[LSlash]k\:0105", "Text",
+ CellChangeTimes->{{3.806570578107113*^9, 3.8065705867466717`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"addWektorSymbol", "[", "ll_", "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"\"\<we\>\"", "<>", "ll"}], "\[Rule]", 
+    RowBox[{"ToBoxes", "[", 
+     RowBox[{"OverVector", "[", 
+      RowBox[{"Symbol", "@", "ll"}], "]"}], "]"}]}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.8065554920664473`*^9, 3.8065555882213707`*^9}, {
+  3.8065556802858*^9, 3.8065556835467033`*^9}, {3.8065705641305113`*^9, 
+  3.806570568802637*^9}, {3.8065707061283493`*^9, 3.806570707658148*^9}}],
+
+Cell["przykladowo :", "Text",
+ CellChangeTimes->{{3.8065709883799*^9, 3.806570994683589*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"addWektorSymbol", "[", "\"\<r\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"%", "//", "DisplayForm"}]}], "Input",
+ CellChangeTimes->{{3.8065709971667767`*^9, 3.806571031529923*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\<\"wer\"\>", "\[Rule]", 
+  RowBox[{"OverscriptBox", "[", 
+   RowBox[{"\<\"r\"\>", ",", "\<\"\[RightVector]\"\>"}], "]"}]}]], "Output",
+ CellChangeTimes->{{3.806571007688444*^9, 3.806571032071883*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"\<\"wer\"\>", "\[Rule]", 
+   OverscriptBox["r", "\[RightVector]"]}],
+  DisplayForm]], "Output",
+ CellChangeTimes->{{3.806571007688444*^9, 3.80657103207285*^9}}]
+}, Open  ]],
+
+Cell["No to jadymy, mapuj\:0105c  na caly alfabet ma\[LSlash]y i wielki :", \
+"Text",
+ CellChangeTimes->{{3.806570531383116*^9, 3.8065705538701487`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"SetOptions", "[", 
+  RowBox[{
+   RowBox[{"EvaluationNotebook", "[", "]"}], ",", 
+   RowBox[{"InputAliases", "\[Rule]", 
+    RowBox[{"currentAliases", "\[Union]", 
+     RowBox[{"Map", "[", 
+      RowBox[{"addWektorSymbol", ",", 
+       RowBox[{
+        RowBox[{"Alphabet", "[", "]"}], "\[Union]", 
+        RowBox[{"Capitalize", "@", 
+         RowBox[{"Alphabet", "[", "]"}]}]}]}], "]"}]}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.806555632953219*^9, 3.806555727591062*^9}, {
+   3.8065558316790953`*^9, 3.8065558700946608`*^9}, {3.8065559058413773`*^9, 
+   3.806555906525964*^9}, 3.806556521254183*^9, 3.8065706789197817`*^9, 
+   3.806570868153138*^9, 3.8065710904667253`*^9}],
+
+Cell["\<\
+I mo\:017cesz si\:0119 bawi\[CAcute], wpisujesz jak greckie : ESC we-litera \
+ESC\
+\>", "Text",
+ CellChangeTimes->{{3.806570609840547*^9, 3.806570659688347*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[AliasDelimiter]", 
+  RowBox[{"wex", "\[IndentingNewLine]", 
+   RowBox[{"\[AliasDelimiter]", "weX"}]}]}]], "Input",
+ CellChangeTimes->{{3.806570942426306*^9, 3.8065709482886047`*^9}, {
+  3.806571042993328*^9, 3.80657104568309*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   OverscriptBox["x", "\[RightVector]"], "//", "FullForm"}],
+  StripOnInput->False,
+  FontWeight->Bold]], "Input",
+ CellChangeTimes->{{3.806556628530642*^9, 3.806556635668756*^9}, {
+  3.806570762458428*^9, 3.806570763533718*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   StyleBox[
+    RowBox[{"OverVector", "[", "x", "]"}],
+    ShowSpecialCharacters->False,
+    ShowStringCharacters->True,
+    NumberMarks->True],
+   FullForm],
+  StripOnInput->False,
+  FontWeight->Bold]], "Output",
+ CellChangeTimes->{{3.806556630034811*^9, 3.806556636099991*^9}, 
+   3.806570764571081*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  OverscriptBox["W", "\[RightVector]"], "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"w1", "[", 
+     RowBox[{"x", ",", "y"}], "]"}], ",", 
+    RowBox[{"w1", "[", 
+     RowBox[{"x", ",", "y"}], "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.806555987287698*^9, 3.80655601481566*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"w1", "[", 
+    RowBox[{"x", ",", "y"}], "]"}], ",", 
+   RowBox[{"w1", "[", 
+    RowBox[{"x", ",", "y"}], "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.806570784802311*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Div", "[", 
+  RowBox[{
+   OverscriptBox["W", "\[RightVector]"], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.806571064379334*^9, 3.8065711076681232`*^9}, {
+  3.806571221510109*^9, 3.8065712263712*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["w1", 
+    TagBox[
+     RowBox[{"(", 
+      RowBox[{"0", ",", "1"}], ")"}],
+     Derivative],
+    MultilineFunction->None], "[", 
+   RowBox[{"x", ",", "y"}], "]"}], "+", 
+  RowBox[{
+   SuperscriptBox["w1", 
+    TagBox[
+     RowBox[{"(", 
+      RowBox[{"1", ",", "0"}], ")"}],
+     Derivative],
+    MultilineFunction->None], "[", 
+   RowBox[{"x", ",", "y"}], "]"}]}]], "Output",
+ CellChangeTimes->{3.806571227373138*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"D", "[", 
+   RowBox[{
+    OverscriptBox["W", "\[RightVector]"], ",", 
+    RowBox[{"{", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], "}"}]}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.806556016120886*^9, 3.8065560200608063`*^9}, {
+  3.806556215299889*^9, 3.806556218825666*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       SuperscriptBox["w1", 
+        TagBox[
+         RowBox[{"(", 
+          RowBox[{"1", ",", "0"}], ")"}],
+         Derivative],
+        MultilineFunction->None], "[", 
+       RowBox[{"x", ",", "y"}], "]"}], 
+      RowBox[{
+       SuperscriptBox["w1", 
+        TagBox[
+         RowBox[{"(", 
+          RowBox[{"0", ",", "1"}], ")"}],
+         Derivative],
+        MultilineFunction->None], "[", 
+       RowBox[{"x", ",", "y"}], "]"}]},
+     {
+      RowBox[{
+       SuperscriptBox["w1", 
+        TagBox[
+         RowBox[{"(", 
+          RowBox[{"1", ",", "0"}], ")"}],
+         Derivative],
+        MultilineFunction->None], "[", 
+       RowBox[{"x", ",", "y"}], "]"}], 
+      RowBox[{
+       SuperscriptBox["w1", 
+        TagBox[
+         RowBox[{"(", 
+          RowBox[{"0", ",", "1"}], ")"}],
+         Derivative],
+        MultilineFunction->None], "[", 
+       RowBox[{"x", ",", "y"}], "]"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.806556020480723*^9, 3.806556219611353*^9, 
+  3.806570789248122*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"R", "[", "t_", "]"}], "=", 
+  RowBox[{
+   OverscriptBox["T", "\[RightVector]"], "[", 
+   RowBox[{
+    RowBox[{"x", "[", "t", "]"}], ",", 
+    RowBox[{"y", "[", "t", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.806556051080812*^9, 3.806556069442284*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  OverscriptBox["T", "\[RightVector]"], "[", 
+  RowBox[{
+   RowBox[{"x", "[", "t", "]"}], ",", 
+   RowBox[{"y", "[", "t", "]"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.806570804229259*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"R", "'"}], "[", "t", "]"}]], "Input",
+ CellChangeTimes->{{3.806556072561264*^9, 3.806556073238216*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["y", "\[Prime]",
+     MultilineFunction->None], "[", "t", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     OverscriptBox["T", "\[RightVector]"], 
+     TagBox[
+      RowBox[{"(", 
+       RowBox[{"0", ",", "1"}], ")"}],
+      Derivative],
+     MultilineFunction->None], "[", 
+    RowBox[{
+     RowBox[{"x", "[", "t", "]"}], ",", 
+     RowBox[{"y", "[", "t", "]"}]}], "]"}]}], "+", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["x", "\[Prime]",
+     MultilineFunction->None], "[", "t", "]"}], " ", 
+   RowBox[{
+    SuperscriptBox[
+     OverscriptBox["T", "\[RightVector]"], 
+     TagBox[
+      RowBox[{"(", 
+       RowBox[{"1", ",", "0"}], ")"}],
+      Derivative],
+     MultilineFunction->None], "[", 
+    RowBox[{
+     RowBox[{"x", "[", "t", "]"}], ",", 
+     RowBox[{"y", "[", "t", "]"}]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{3.8065560737652187`*^9, 3.8065708108377113`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   OverscriptBox["f", "\[RightVector]"], "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}]}], ";", 
+  RowBox[{
+   OverscriptBox["g", "\[RightVector]"], "=", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", 
+     RowBox[{"-", "4"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.806556148847395*^9, 3.806556166450075*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Norm", "[", 
+  RowBox[{
+   OverscriptBox["f", "\[RightVector]"], "+", 
+   OverscriptBox["g", "\[RightVector]"]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  OverscriptBox["f", "\[RightVector]"], ".", 
+  OverscriptBox["g", "\[RightVector]"]}]}], "Input",
+ CellChangeTimes->{{3.80655573023564*^9, 3.806555734732638*^9}, {
+  3.80655617461341*^9, 3.806556183108066*^9}}],
+
+Cell[BoxData[
+ RowBox[{"2", " ", 
+  SqrtBox["5"]}]], "Output",
+ CellChangeTimes->{3.806556183896654*^9, 3.806570815248934*^9}],
+
+Cell[BoxData[
+ RowBox[{"-", "5"}]], "Output",
+ CellChangeTimes->{3.806556183896654*^9, 3.806570815249908*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{556, Automatic}, {55, Automatic}},
+InputAliases->{
+ "wea" -> OverscriptBox["a", "\[RightVector]"], "weA" -> 
+  OverscriptBox["A", "\[RightVector]"], "web" -> 
+  OverscriptBox["b", "\[RightVector]"], "weB" -> 
+  OverscriptBox["B", "\[RightVector]"], "wec" -> 
+  OverscriptBox["c", "\[RightVector]"], "weC" -> 
+  OverscriptBox["C", "\[RightVector]"], "wed" -> 
+  OverscriptBox["d", "\[RightVector]"], "weD" -> 
+  OverscriptBox["D", "\[RightVector]"], "wee" -> 
+  OverscriptBox["e", "\[RightVector]"], "weE" -> 
+  OverscriptBox["\[ExponentialE]", "\[RightVector]"], "wef" -> RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}], "weF" -> 
+  OverscriptBox["F", "\[RightVector]"], "weg" -> RowBox[{"{", 
+     RowBox[{"3", ",", 
+       RowBox[{"-", "4"}]}], "}"}], "weG" -> 
+  OverscriptBox["G", "\[RightVector]"], "weh" -> 
+  OverscriptBox["h", "\[RightVector]"], "weH" -> 
+  OverscriptBox["H", "\[RightVector]"], "wei" -> 
+  OverscriptBox["i", "\[RightVector]"], "weI" -> 
+  OverscriptBox["\[ImaginaryI]", "\[RightVector]"], "wej" -> 
+  OverscriptBox["j", "\[RightVector]"], "weJ" -> 
+  OverscriptBox["J", "\[RightVector]"], "wek" -> 
+  OverscriptBox["k", "\[RightVector]"], "weK" -> 
+  OverscriptBox["K", "\[RightVector]"], "wel" -> 
+  OverscriptBox["l", "\[RightVector]"], "weL" -> 
+  OverscriptBox["L", "\[RightVector]"], "wem" -> 
+  OverscriptBox["m", "\[RightVector]"], "weM" -> 
+  OverscriptBox["M", "\[RightVector]"], "wen" -> 
+  OverscriptBox["n", "\[RightVector]"], "weN" -> 
+  OverscriptBox["N", "\[RightVector]"], "weo" -> 
+  OverscriptBox["o", "\[RightVector]"], "weO" -> 
+  OverscriptBox["O", "\[RightVector]"], "wep" -> 
+  OverscriptBox["p", "\[RightVector]"], "weP" -> 
+  OverscriptBox["P", "\[RightVector]"], "weq" -> 
+  OverscriptBox["q", "\[RightVector]"], "weQ" -> 
+  OverscriptBox["Q", "\[RightVector]"], "wer" -> 
+  OverscriptBox["r", "\[RightVector]"], "weR" -> 
+  OverscriptBox["R", "\[RightVector]"], "wes" -> 
+  OverscriptBox["s", "\[RightVector]"], "weS" -> 
+  OverscriptBox["S", "\[RightVector]"], "wet" -> 
+  OverscriptBox["t", "\[RightVector]"], "weT" -> 
+  OverscriptBox["T", "\[RightVector]"], "weu" -> 
+  OverscriptBox["u", "\[RightVector]"], "weU" -> 
+  OverscriptBox["U", "\[RightVector]"], "wev" -> 
+  OverscriptBox["v", "\[RightVector]"], "weV" -> 
+  OverscriptBox["V", "\[RightVector]"], "wew" -> 
+  OverscriptBox["w", "\[RightVector]"], "weW" -> RowBox[{"{", 
+     RowBox[{
+       RowBox[{"w1", "[", 
+         RowBox[{"x", ",", "y"}], "]"}], ",", 
+       RowBox[{"w1", "[", 
+         RowBox[{"x", ",", "y"}], "]"}]}], "}"}], "wex" -> 
+  OverscriptBox["x", "\[RightVector]"], "weX" -> 
+  OverscriptBox["X", "\[RightVector]"], "wey" -> 
+  OverscriptBox["y", "\[RightVector]"], "weY" -> 
+  OverscriptBox["Y", "\[RightVector]"], "wez" -> 
+  OverscriptBox["z", "\[RightVector]"], "weZ" -> 
+  OverscriptBox["Z", "\[RightVector]"]},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb",
+"veH" -> OverscriptBox["H", "\[RightVector]"],
+"wea" -> OverscriptBox["a", "\[RightVector]"],
+"web" -> OverscriptBox["b", "\[RightVector]"],
+"wec" -> OverscriptBox["c", "\[RightVector]"],
+"wed" -> OverscriptBox["d", "\[RightVector]"],
+"wee" -> OverscriptBox["e", "\[RightVector]"],
+"wef" -> OverscriptBox["f", "\[RightVector]"],
+"weg" -> OverscriptBox["g", "\[RightVector]"],
+"weh" -> OverscriptBox["h", "\[RightVector]"],
+"wei" -> OverscriptBox["i", "\[RightVector]"],
+"wej" -> OverscriptBox["j", "\[RightVector]"],
+"wek" -> OverscriptBox["k", "\[RightVector]"],
+"wel" -> OverscriptBox["l", "\[RightVector]"],
+"wem" -> OverscriptBox["m", "\[RightVector]"],
+"wen" -> OverscriptBox["n", "\[RightVector]"],
+"weo" -> OverscriptBox["o", "\[RightVector]"],
+"wep" -> OverscriptBox["p", "\[RightVector]"],
+"weq" -> OverscriptBox["q", "\[RightVector]"],
+"wer" -> OverscriptBox["r", "\[RightVector]"],
+"wes" -> OverscriptBox["s", "\[RightVector]"],
+"wet" -> OverscriptBox["t", "\[RightVector]"],
+"weu" -> OverscriptBox["u", "\[RightVector]"],
+"wev" -> OverscriptBox["v", "\[RightVector]"],
+"wew" -> OverscriptBox["w", "\[RightVector]"],
+"wex" -> OverscriptBox["x", "\[RightVector]"],
+"wey" -> OverscriptBox["y", "\[RightVector]"],
+"wez" -> OverscriptBox["z", "\[RightVector]"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 166, 3, 31, "Text"],
+Cell[CellGroupData[{
+Cell[749, 27, 224, 6, 37, "Input"],
+Cell[976, 35, 138, 3, 32, "Output"]
+}, Open  ]],
+Cell[1129, 41, 180, 2, 31, "Text"],
+Cell[1312, 45, 620, 11, 37, "Input"],
+Cell[1935, 58, 616, 15, 60, "Text"],
+Cell[2554, 75, 115, 1, 31, "Text"],
+Cell[2672, 78, 510, 11, 34, "Input"],
+Cell[3185, 91, 93, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[3303, 96, 207, 3, 56, "Input"],
+Cell[3513, 101, 225, 4, 32, "Output"],
+Cell[3741, 107, 194, 5, 48, "Output"]
+}, Open  ]],
+Cell[3950, 115, 153, 2, 31, "Text"],
+Cell[4106, 119, 701, 15, 85, "Input"],
+Cell[4810, 136, 171, 4, 31, "Text"],
+Cell[4984, 142, 256, 5, 55, "Input"],
+Cell[CellGroupData[{
+Cell[5265, 151, 265, 7, 36, InheritFromParent],
+Cell[5533, 160, 341, 12, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5911, 177, 311, 9, 41, "Input"],
+Cell[6225, 188, 225, 7, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6487, 200, 280, 7, 47, "Input"],
+Cell[6770, 209, 472, 18, 36, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7279, 232, 347, 10, 47, "Input"],
+Cell[7629, 244, 1562, 51, 76, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9228, 300, 293, 8, 41, "Input"],
+Cell[9524, 310, 214, 6, 36, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9775, 321, 138, 3, 34, "Input"],
+Cell[9916, 326, 944, 32, 37, "Output"]
+}, Open  ]],
+Cell[10875, 361, 359, 11, 41, "Input"],
+Cell[CellGroupData[{
+Cell[11259, 376, 391, 9, 77, "Input"],
+Cell[11653, 387, 126, 3, 43, "Output"],
+Cell[11782, 392, 109, 2, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
